@@ -11,26 +11,8 @@ spec:
           - key: topology.kubernetes.io/zone
             operator: In
             values:
-            - us-east-1
-          - key: disktype
-            operator: In
-            values:
-            - ssd
-      preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 100 # Higher weight means higher preference (1-100)
-        preference:
-          matchExpressions:
-          - key: project # Node label key
-            operator: In
-            values:
-            - roboshop
-      - weight: 10
-        preference:
-          matchExpressions:
-          - key: project
-            operator: In
-            values:
-            - amazon
+            - us-east-1a
+      
   containers:
   - name: nginx-container
     image: nginx
