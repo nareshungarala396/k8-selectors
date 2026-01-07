@@ -12,6 +12,25 @@ spec:
             operator: In
             values:
             - us-east-1a
+          # - key: disktype
+          #   operator: In
+          #   values:
+          #   - ssd
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100 # Higher weight means higher preference (1-100)
+        preference:
+          matchExpressions:
+          - key: project # Node label key
+            operator: In
+            values:
+            - roboshop
+      - weight: 10
+        preference:
+          matchExpressions:
+          - key: project
+            operator: In
+            values:
+            - amazon
       
   containers:
   - name: nginx-container
